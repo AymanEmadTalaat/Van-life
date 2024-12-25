@@ -1,0 +1,21 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background: #252525;
+  width: 100%;
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+footer i {
+  color: #aaaaaa;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23px;
+}

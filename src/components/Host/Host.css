@@ -1,0 +1,26 @@
+.host-links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.host-links * {
+  color: #4d4d4d;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: right;
+  text-decoration: none;
+}
+
+.host-links *:hover {
+  color: #161616;
+  text-decoration-line: underline;
+}
+
+.active-link {
+  color: #161616;
+  text-decoration-line: underline;
+}

@@ -1,0 +1,59 @@
+.home-container {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+    url("../../assets/home-hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 5rem 2rem;
+}
+
+.home-container > h1,
+.home-container > p,
+.button-link {
+  color: #ffffff;
+  font-style: normal;
+}
+
+.home-container > h1 {
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 42px;
+  align-self: center;
+}
+
+.home-container > p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.button-link {
+  width: 100%;
+  max-width: 494.33px;
+  background: #ff8c38;
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  outline: none;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 15.9462px;
+  line-height: 32px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-link:active,
+.button-link:focus {
+  outline: 2px solid gray;
+}
+
+.button-link:active {
+  transform: translateY(4px);
+}
