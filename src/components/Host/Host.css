@@ -2,8 +2,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 2rem;
-  padding: 2rem;
+  gap: 0.5rem;
+  padding: 5rem 0 2rem 3rem;
 }
 
 .host-links * {
@@ -23,4 +23,187 @@
 .active-link {
   color: #161616;
   text-decoration-line: underline;
+}
+
+.vansHost-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 0 0 6rem;
+  padding: 0 3rem;
+}
+
+.vansHost-container h1 {
+  color: #161616;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 34px;
+}
+
+.vanHost,
+.vanHost a {
+  background: #ffffff;
+  width: 100%;
+  border-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+}
+
+.vanHost img {
+  width: 30%;
+  min-width: 110px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.vanHost h2 {
+  color: #161616;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  margin: 0;
+}
+
+.vanHost span {
+  color: #4d4d4d;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.vansDetail-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.back-to-vansHost {
+  color: #201f1d;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15.9462px;
+  line-height: 23px;
+  text-decoration-line: underline;
+  margin: 3rem 3rem 0;
+}
+
+.vanDetail-container {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 3rem;
+  padding: 2rem;
+  border-radius: 6px;
+}
+
+.vanDetail-container img {
+  width: 35%;
+  min-width: 110px;
+  height: auto;
+  border-radius: 1.61012px;
+}
+
+.vanDetail-container button {
+  max-width: 69.8px;
+  width: 100%;
+  height: 27.59px;
+  color: #ffead0;
+  border: none;
+  border-radius: 4.0716px;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13.0291px;
+  line-height: 26px;
+}
+
+.simple {
+  background-color: #e17654;
+}
+
+.rugged {
+  background-color: #115e59;
+}
+
+.luxury {
+  background: #161616;
+}
+
+.vanDetail-container h1,
+.vanDetail-container h2 {
+  color: #161616;
+  font-style: normal;
+  font-weight: 700;
+  margin-block: 0;
+}
+
+.vanDetail-container h1 {
+  font-size: 26.0583px;
+  line-height: 27px;
+  margin-top: 0.5rem;
+}
+
+.vanDetail-container h2 {
+  font-size: 19.5437px;
+  line-height: 36px;
+}
+
+.vanDetail-container h3,
+.vanDetail-container p,
+.vanDetail-container span {
+  color: #161616;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14.3548px;
+  line-height: 21px;
+}
+
+.vanDetail-container span {
+  font-weight: 400;
+}
+
+.vanDetail-container > div:nth-child(1),
+.vansHost-links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.vanDetail-container > div:nth-child(1) {
+  gap: 2rem;
+}
+
+.vansHost-links {
+  width: 100%;
+  gap: 2rem;
+}
+
+.vansHost-links * {
+  color: #4d4d4d;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.1492px;
+  line-height: 21px;
+  text-decoration: none;
+}
+
+.vansHost-links *:hover {
+  color: #161616;
+  text-decoration-line: underline;
+}
+
+.vanDetail-container .photos-img {
+  width: 25%;
+  min-width: 100px;
+  height: auto;
+  border-radius: 1.61012px;
 }

@@ -4,7 +4,7 @@ import "./Nav.css";
 export default function Nav() {
   return (
     <nav>
-      <NavLink to="/" className="home-link">
+      <NavLink to="." className="home-link">
         #VANLIFE
       </NavLink>
 
@@ -17,13 +17,13 @@ export default function Nav() {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active-link" : null)}
-          to="/about"
+          to="about"
         >
           About
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active-link" : null)}
-          to="/vans"
+          to="vans"
         >
           Vans
         </NavLink>

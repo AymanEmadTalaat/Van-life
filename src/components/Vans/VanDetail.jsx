@@ -1,6 +1,6 @@
 import "./VanDetail.css";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router";
+import { useParams, NavLink } from "react-router";
 
 function VanDetail() {
   const [vanData, setVanData] = useState([]);
@@ -23,9 +23,9 @@ function VanDetail() {
 
   return (
     <div className="van-detail-container">
-      <Link to="/vans" className="back-to-vans">
+      <NavLink to=".." relative="path" className="back-to-vans">
         Back to all vans
-      </Link>
+      </NavLink>
 
       <img
         width="230px"
