@@ -1,10 +1,11 @@
 import "./VanDetail.css";
 import { useEffect, useState } from "react";
-import { useParams, NavLink } from "react-router";
+import { useParams, NavLink, useLocation } from "react-router";
 
 function VanDetail() {
   const [vanData, setVanData] = useState([]);
   const params = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     async function getVan() {
@@ -23,7 +24,11 @@ function VanDetail() {
 
   return (
     <div className="van-detail-container">
-      <NavLink to=".." relative="path" className="back-to-vans">
+      <NavLink
+        to={`..?${location.state?.search || ""}`} //Optional chaining || or use ternary operator
+        relative="path"
+        className="back-to-vans"
+      >
         Back to all vans
       </NavLink>
 

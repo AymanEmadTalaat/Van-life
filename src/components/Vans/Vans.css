@@ -64,6 +64,21 @@ ul li {
   text-align: center;
 }
 
+ul li:nth-child(1):hover {
+  background-color: #e17654;
+  color: #ffead0;
+}
+
+ul li:nth-child(2):hover {
+  background: #161616;
+  color: #ffead0;
+}
+
+ul li:nth-child(3):hover {
+  background-color: #115e59;
+  color: #ffead0;
+}
+
 .filter-container span {
   text-decoration-line: underline;
   text-align: end;

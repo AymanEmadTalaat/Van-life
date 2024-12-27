@@ -22,7 +22,7 @@ function VansHost() {
 
   const vans = vansHost.map((van) => (
     <div key={van.id} className="vanHost">
-      <NavLink to={`/host/vans/${van.id}`}>
+      <NavLink to={`${van.id}`}>
         <img width="66px" height="66px" src={van.imageUrl} alt={van.name} />
 
         <div>

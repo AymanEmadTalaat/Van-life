@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import "./Vans.css";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 
 function Vans() {
   const [vansData, setVansData] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams({});
+
+  const typeFilter = searchParams.get("type");
 
   useEffect(() => {
     async function getVans() {
@@ -20,9 +23,13 @@ function Vans() {
     getVans();
   }, []);
 
-  const newVansData = vansData.map((van) => (
+  const filteredData = typeFilter
+    ? vansData.filter((van) => van.type.toLowerCase() === typeFilter)
+    : vansData;
+
+  const newVansData = filteredData.map((van) => (
     <div key={van.id} className="van">
-      <Link to={`/vans/${van.id}`}>
+      <Link to={`${van.id}`} state={{ search: searchParams.toString() }}>
         <img width="230px" height="230px" src={van.imageUrl} alt={van.name} />
 
         <div>
@@ -40,18 +47,31 @@ function Vans() {
     </div>
   ));
 
+  function handleSearchParams(key, value) {
+    setSearchParams((prev) => {
+      if (value === null) {
+        prev.delete(key);
+      } else {
+        prev.set(key, value);
+      }
+      return prev;
+    });
+  }
+
   return (
     <div className="vans-container">
       <h1>Explore our van options</h1>
 
       <div className="filter-container">
         <ul>
-          <li>Simple</li>
-          <li>Luxury</li>
-          <li>Rugged</li>
+          <li onClick={() => handleSearchParams("type", "simple")}>Simple</li>
+          <li onClick={() => handleSearchParams("type", "luxury")}>Luxury</li>
+          <li onClick={() => handleSearchParams("type", "rugged")}>Rugged</li>
         </ul>
 
-        <span>Clear filter</span>
+        <span onClick={() => handleSearchParams("type", null)}>
+          Clear filter
+        </span>
       </div>
 
       <div className="vans-list">{newVansData}</div>
