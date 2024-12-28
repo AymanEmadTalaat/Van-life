@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import "./Nav.css";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function Nav() {
   return (
@@ -26,6 +27,12 @@ export default function Nav() {
           to="vans"
         >
           Vans
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active-link" : null)}
+          to="login"
+        >
+          <AccountCircleIcon />
         </NavLink>
       </div>
     </nav>

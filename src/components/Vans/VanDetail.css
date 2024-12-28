@@ -97,7 +97,7 @@ i,
 
 .rent-btn:active,
 .rent-btn:focus {
-  outline: 2px solid gray;
+  outline: 1px solid skyblue;
 }
 
 .rent-btn:active {

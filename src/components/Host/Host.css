@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.5rem;
+  gap: 3rem;
   padding: 5rem 0 2rem 3rem;
 }
 
@@ -161,6 +161,7 @@
 .vanDetail-container p,
 .vanDetail-container span {
   color: #161616;
+  margin: 0;
   font-style: normal;
   font-weight: 700;
   font-size: 14.3548px;
@@ -206,4 +207,20 @@
   min-width: 100px;
   height: auto;
   border-radius: 1.61012px;
+}
+
+@media screen and (max-width: 500px) {
+  .host-links {
+    gap: 1rem;
+    padding: 5rem 0 2rem 1.5rem;
+  }
+
+  .vanDetail-container h1 {
+    font-size: 20px;
+  }
+
+  .vanDetail-container h3,
+  .vanDetail-container p {
+    margin: 0;
+  }
 }

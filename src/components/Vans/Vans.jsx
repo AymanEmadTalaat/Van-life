@@ -1,26 +1,32 @@
 import { useEffect, useState } from "react";
 import "./Vans.css";
 import { Link, useSearchParams } from "react-router";
+import getVans from "../api";
 
 function Vans() {
   const [vansData, setVansData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const [searchParams, setSearchParams] = useSearchParams({});
 
   const typeFilter = searchParams.get("type");
 
   useEffect(() => {
-    async function getVans() {
-      try {
-        const response = await fetch("/api/vans");
-        const vansData = await response.json();
+    async function loadVans() {
+      setLoading(true);
 
-        setVansData(vansData.vans);
+      try {
+        const data = await getVans();
+        setVansData(data);
       } catch (err) {
         console.log(err);
+        setError(err);
+      } finally {
+        setLoading(false);
       }
     }
-
-    getVans();
+    loadVans();
   }, []);
 
   const filteredData = typeFilter
@@ -56,6 +62,18 @@ function Vans() {
       }
       return prev;
     });
+  }
+
+  if (loading) {
+    return (
+      <h1 aria-live="polite" style={{ textAlign: "center" }}>
+        Loading...
+      </h1>
+    );
+  }
+
+  if (error) {
+    return <h1 aria-live="assertive">There was an error: {error.message}</h1>;
   }
 
   return (

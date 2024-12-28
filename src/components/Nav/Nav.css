@@ -28,7 +28,6 @@ nav * {
   height: 22.92px;
   display: flex;
   justify-content: end;
-  align-items: center;
   gap: 2rem;
 }
 
@@ -48,4 +47,10 @@ nav * {
 .active-link {
   color: #161616;
   text-decoration-line: underline;
+}
+
+@media screen and (max-width: 500px) {
+  .links-container {
+    gap: 0.5rem;
+  }
 }

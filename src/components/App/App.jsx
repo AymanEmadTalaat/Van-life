@@ -14,6 +14,8 @@ import HostLayout from "../hostLayout.jsx";
 import Details from "../Host/Details.jsx";
 import Pricing from "../Host/Pricing.jsx";
 import Photos from "../Host/Photos.jsx";
+import NotFound from "../NotFound.jsx";
+import Login from "../Login/Login.jsx";
 
 import "/server";
 
@@ -24,6 +26,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="login" element={<Login />} />
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
 
@@ -39,6 +42,7 @@ function App() {
               <Route path="photos" element={<Photos />} />
             </Route>
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

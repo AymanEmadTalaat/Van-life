@@ -19,3 +19,50 @@ footer i {
   font-size: 14px;
   line-height: 23px;
 }
+
+.notFound-container {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.notFound-container > h1,
+.notFound-container button {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.notFound-container > h1 {
+  color: #161616;
+  font-size: 32px;
+  line-height: 42px;
+  margin-inline: auto;
+}
+
+.notFound-container button {
+  background: #161616;
+  color: #ffffff;
+  width: 90vw;
+  max-width: 494.33px;
+  height: 55px;
+  border: none;
+  border-radius: 4.98319px;
+  outline: none;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 32px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.notFound-container button:active,
+.notFound-container button:focus {
+  outline: 1px solid skyblue;
+}
+
+.notFound-container button:active {
+  transform: translateY(4px);
+}

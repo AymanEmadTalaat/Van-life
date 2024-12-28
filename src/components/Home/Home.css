@@ -1,4 +1,5 @@
 .home-container {
+  height: 71.6vh;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
     url("../../assets/home-hero.png");
   background-size: cover;
@@ -51,9 +52,24 @@
 
 .button-link:active,
 .button-link:focus {
-  outline: 2px solid gray;
+  outline: 1px solid black;
 }
 
 .button-link:active {
   transform: translateY(4px);
+}
+
+@media screen and (max-width: 800px) {
+  .home-container {
+    gap: 1rem;
+  }
+
+  .home-container h1 {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 400px) {
+  .home-container {
+    height: 69vh;
+  }
 }
