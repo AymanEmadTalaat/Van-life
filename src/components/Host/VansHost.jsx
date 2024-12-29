@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Host.css";
 import { NavLink } from "react-router";
+import { getHostVans } from "../api";
 
 function VansHost() {
   const [vansHost, setVansHost] = useState([]);
@@ -8,10 +9,9 @@ function VansHost() {
   useEffect(() => {
     async function getVans() {
       try {
-        const response = await fetch("/api/host/vans");
-        const data = await response.json();
+        const data = await getHostVans();
 
-        setVansHost(data.vans);
+        setVansHost(data);
       } catch (err) {
         console.log(err);
       }

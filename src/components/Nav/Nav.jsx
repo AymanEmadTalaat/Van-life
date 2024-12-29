@@ -34,6 +34,8 @@ export default function Nav() {
         >
           <AccountCircleIcon />
         </NavLink>
+
+        <span onClick={() => localStorage.removeItem("loggedin")}>X</span>
       </div>
     </nav>
   );

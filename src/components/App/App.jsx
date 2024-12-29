@@ -16,6 +16,7 @@ import Pricing from "../Host/Pricing.jsx";
 import Photos from "../Host/Photos.jsx";
 import NotFound from "../NotFound.jsx";
 import Login from "../Login/Login.jsx";
+import AuthRequired from "../AuthRequired.jsx";
 
 import "/server";
 
@@ -30,18 +31,21 @@ function App() {
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
 
-          <Route path="host" element={<HostLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="income" element={<Income />} />
-            <Route path="reviews" element={<Reviews />} />
-            <Route path="vans" element={<VansHost />} />
+          <Route element={<AuthRequired />}>
+            <Route path="host" element={<HostLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="income" element={<Income />} />
+              <Route path="reviews" element={<Reviews />} />
+              <Route path="vans" element={<VansHost />} />
 
-            <Route path="vans/:id" element={<VanHostDetail />}>
-              <Route index element={<Details />} />
-              <Route path="pricing" element={<Pricing />} />
-              <Route path="photos" element={<Photos />} />
+              <Route path="vans/:id" element={<VanHostDetail />}>
+                <Route index element={<Details />} />
+                <Route path="pricing" element={<Pricing />} />
+                <Route path="photos" element={<Photos />} />
+              </Route>
             </Route>
           </Route>
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

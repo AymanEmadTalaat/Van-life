@@ -9,7 +9,12 @@ form {
   align-items: center;
 }
 
-.login-container > h1 {
+.login-container h1:nth-child(1) {
+  margin-bottom: 0;
+  margin-inline: auto;
+}
+
+.login-container h1 {
   color: #161616;
   margin: 3rem auto;
   text-align: center;
@@ -17,6 +22,10 @@ form {
   font-weight: 700;
   font-size: 32px;
   line-height: 30px;
+}
+
+.login-container h3 {
+  margin-top: 0;
 }
 
 input[type="email"] {

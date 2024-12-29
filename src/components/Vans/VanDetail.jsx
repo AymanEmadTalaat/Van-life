@@ -1,6 +1,7 @@
 import "./VanDetail.css";
 import { useEffect, useState } from "react";
 import { useParams, NavLink, useLocation } from "react-router";
+import getVans from "../api";
 
 function VanDetail() {
   const [vanData, setVanData] = useState([]);
@@ -10,10 +11,9 @@ function VanDetail() {
   useEffect(() => {
     async function getVan() {
       try {
-        const response = await fetch(`/api/vans/${params.id}`);
-        const data = await response.json();
+        const data = await getVans(params.id);
 
-        setVanData(data.vans);
+        setVanData(data);
       } catch (err) {
         console.log(err);
       }
