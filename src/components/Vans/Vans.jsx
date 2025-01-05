@@ -1,33 +1,17 @@
-import { useEffect, useState } from "react";
 import "./Vans.css";
-import { Link, useSearchParams } from "react-router";
+import { Link, useSearchParams, useLoaderData } from "react-router";
 import getVans from "../api";
 
-function Vans() {
-  const [vansData, setVansData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+export function Loader() {
+  return getVans();
+}
 
+export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams({});
 
   const typeFilter = searchParams.get("type");
 
-  useEffect(() => {
-    async function loadVans() {
-      setLoading(true);
-
-      try {
-        const data = await getVans();
-        setVansData(data);
-      } catch (err) {
-        console.log(err);
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadVans();
-  }, []);
+  const vansData = useLoaderData();
 
   const filteredData = typeFilter
     ? vansData.filter((van) => van.type.toLowerCase() === typeFilter)
@@ -64,16 +48,12 @@ function Vans() {
     });
   }
 
-  if (loading) {
+  if (!vansData) {
     return (
       <h1 aria-live="polite" style={{ textAlign: "center" }}>
         Loading...
       </h1>
     );
-  }
-
-  if (error) {
-    return <h1 aria-live="assertive">There was an error: {error.message}</h1>;
   }
 
   return (
@@ -96,5 +76,3 @@ function Vans() {
     </div>
   );
 }
-
-export default Vans;
