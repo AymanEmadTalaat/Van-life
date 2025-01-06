@@ -1,24 +1,13 @@
-import { useEffect, useState } from "react";
 import "./Host.css";
-import { NavLink } from "react-router";
+import { NavLink, useLoaderData } from "react-router";
 import { getHostVans } from "../api";
 
+export function Loader() {
+  return getHostVans();
+}
+
 function VansHost() {
-  const [vansHost, setVansHost] = useState([]);
-
-  useEffect(() => {
-    async function getVans() {
-      try {
-        const data = await getHostVans();
-
-        setVansHost(data);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-
-    getVans();
-  }, []);
+  const vansHost = useLoaderData();
 
   const vans = vansHost.map((van) => (
     <div key={van.id} className="vanHost">

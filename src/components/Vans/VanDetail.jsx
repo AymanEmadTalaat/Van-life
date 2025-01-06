@@ -1,26 +1,14 @@
 import "./VanDetail.css";
-import { useEffect, useState } from "react";
-import { useParams, NavLink, useLocation } from "react-router";
+import { NavLink, useLocation, useLoaderData } from "react-router";
 import getVans from "../api";
 
+export function Loader({ params }) {
+  return getVans(params.id);
+}
+
 function VanDetail() {
-  const [vanData, setVanData] = useState([]);
-  const params = useParams();
   const location = useLocation();
-
-  useEffect(() => {
-    async function getVan() {
-      try {
-        const data = await getVans(params.id);
-
-        setVanData(data);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-
-    getVan();
-  }, [params.id]);
+  const vanData = useLoaderData();
 
   return (
     <div className="van-detail-container">

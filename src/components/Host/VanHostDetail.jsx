@@ -1,38 +1,13 @@
 import "./Host.css";
-import { useState, useEffect } from "react";
-import { useParams, NavLink, Outlet } from "react-router";
+import { NavLink, Outlet, useLoaderData } from "react-router";
 import { getHostVans } from "../api";
 
+export function Loader({ params }) {
+  return getHostVans(params.id);
+}
+
 function VanHostDetail() {
-  const [vansHost, setVansHost] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const params = useParams();
-
-  useEffect(() => {
-    async function getVans() {
-      setLoading(true);
-
-      try {
-        const data = await getHostVans(params.id);
-
-        setVansHost(data);
-      } catch (err) {
-        console.log(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    getVans();
-  }, [params.id]);
-
-  if (loading) {
-    return (
-      <h1 aria-live="polite" style={{ textAlign: "center" }}>
-        Loading...
-      </h1>
-    );
-  }
+  const vansHost = useLoaderData();
 
   return (
     <div className="vansDetail-container">

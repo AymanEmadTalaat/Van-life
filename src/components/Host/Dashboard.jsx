@@ -1,38 +1,14 @@
 import "./Host.css";
-import { useState, useEffect } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useLoaderData } from "react-router";
 import { getHostVans } from "../api";
 import GradeIcon from "@mui/icons-material/Grade";
 
+export function Loader() {
+  return getHostVans();
+}
+
 function Dashboard() {
-  const [vansHost, setVansHost] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    async function getVans() {
-      setLoading(true);
-
-      try {
-        const data = await getHostVans();
-
-        setVansHost(data);
-      } catch (err) {
-        console.log(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    getVans();
-  }, []);
-
-  if (loading) {
-    return (
-      <h1 aria-live="polite" style={{ textAlign: "center" }}>
-        Loading...
-      </h1>
-    );
-  }
+  const vansHost = useLoaderData();
 
   const vans = vansHost.map((van) => (
     <div key={van.id} className="vanHost">

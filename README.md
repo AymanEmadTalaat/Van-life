@@ -1,1 +1,2 @@
-- Basic reusable styled Tooltip using React / Vite.
+- This is VanLife WebApp implemented using React/Vite.
+- The main reason was To use React Router 6 and learn it's features.
