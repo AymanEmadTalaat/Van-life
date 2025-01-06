@@ -1,6 +1,7 @@
 import "./VanDetail.css";
 import { NavLink, useLocation, useLoaderData } from "react-router";
 import getVans from "../api";
+import { memo } from "react";
 
 export function Loader({ params }) {
   return getVans(params.id);
@@ -47,4 +48,4 @@ function VanDetail() {
   );
 }
 
-export default VanDetail;
+export default memo(VanDetail);

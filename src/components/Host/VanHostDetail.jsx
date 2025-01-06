@@ -1,6 +1,7 @@
 import "./Host.css";
 import { NavLink, Outlet, useLoaderData } from "react-router";
 import { getHostVans } from "../api";
+import { memo } from "react";
 
 export function Loader({ params }) {
   return getHostVans(params.id);
@@ -62,4 +63,4 @@ function VanHostDetail() {
   );
 }
 
-export default VanHostDetail;
+export default memo(VanHostDetail);

@@ -1,12 +1,13 @@
 import "./Vans.css";
 import { Link, useSearchParams, useLoaderData } from "react-router";
 import getVans from "../api";
+import { memo } from "react";
 
 export function Loader() {
   return getVans();
 }
 
-export default function Vans() {
+function Vans() {
   const [searchParams, setSearchParams] = useSearchParams({});
 
   const typeFilter = searchParams.get("type");
@@ -76,3 +77,5 @@ export default function Vans() {
     </div>
   );
 }
+
+export default memo(Vans);

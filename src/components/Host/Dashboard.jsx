@@ -2,6 +2,7 @@ import "./Host.css";
 import { NavLink, useLoaderData } from "react-router";
 import { getHostVans } from "../api";
 import GradeIcon from "@mui/icons-material/Grade";
+import { memo } from "react";
 
 export function Loader() {
   return getHostVans();
@@ -61,4 +62,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default memo(Dashboard);
