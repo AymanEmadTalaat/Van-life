@@ -7,13 +7,15 @@ import {
 } from "react-router";
 import Home from "../Home/Home.jsx";
 import About from "../About/About.jsx";
-import { Loader as vansLoader } from "../Vans/Vans.jsx";
-import { Loader as vansDetailLoader } from "../Vans/VanDetail.jsx";
-import { Loader as dashboardLoader } from "../Host/Dashboard.jsx";
-import { Loader as vansHostLoader } from "../Host/VansHost.jsx";
+import Vans, { Loader as vansLoader } from "../Vans/Vans.jsx";
+import VanDetail, { Loader as vansDetailLoader } from "../Vans/VanDetail.jsx";
+import Dashboard, { Loader as dashboardLoader } from "../Host/Dashboard.jsx";
+import VansHost, { Loader as vansHostLoader } from "../Host/VansHost.jsx";
 import Income from "../Host/Income.jsx";
 import Reviews from "../Host/Reviews.jsx";
-import { Loader as vansHostDetailLoader } from "../Host/VanHostDetail.jsx";
+import VanHostDetail, {
+  Loader as vansHostDetailLoader,
+} from "../Host/VanHostDetail.jsx";
 import Layout from "../Layout.jsx";
 import HostLayout from "../hostLayout.jsx";
 import Details from "../Host/Details.jsx";
@@ -23,29 +25,8 @@ import NotFound from "../NotFound.jsx";
 import Login from "../Login/Login.jsx";
 import AuthRequired from "../AuthRequired.jsx";
 import Error from "../Error.jsx";
-import { lazy, Suspense } from "react";
 
 import "/server";
-
-const Vans = lazy(() => {
-  return import("../Vans/Vans.jsx");
-});
-
-const VanDetail = lazy(() => {
-  return import("../Vans/VanDetail.jsx");
-});
-
-const Dashboard = lazy(() => {
-  return import("../Host/Dashboard.jsx");
-});
-
-const VansHost = lazy(() => {
-  return import("../Host/VansHost.jsx");
-});
-
-const VanHostDetail = lazy(() => {
-  return import("../Host/VanHostDetail.jsx");
-});
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
@@ -55,21 +36,13 @@ const Router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route
         path="vans"
-        element={
-          <Suspense fallback={<h1>Loading...</h1>}>
-            <Vans />
-          </Suspense>
-        }
+        element={<Vans />}
         loader={vansLoader}
         errorElement={<Error />}
       />
       <Route
         path="vans/:id"
-        element={
-          <Suspense fallback={<h1>Loading...</h1>}>
-            <VanDetail />
-          </Suspense>
-        }
+        element={<VanDetail />}
         loader={vansDetailLoader}
         errorElement={<Error />}
       />
@@ -78,11 +51,7 @@ const Router = createBrowserRouter(
         <Route path="host" element={<HostLayout />}>
           <Route
             index
-            element={
-              <Suspense fallback={<h1>Loading...</h1>}>
-                <Dashboard />
-              </Suspense>
-            }
+            element={<Dashboard />}
             loader={dashboardLoader}
             errorElement={<Error />}
           />
@@ -90,22 +59,14 @@ const Router = createBrowserRouter(
           <Route path="reviews" element={<Reviews />} />
           <Route
             path="vans"
-            element={
-              <Suspense fallback={<h1>Loading...</h1>}>
-                <VansHost />
-              </Suspense>
-            }
+            element={<VansHost />}
             loader={vansHostLoader}
             errorElement={<Error />}
           />
 
           <Route
             path="vans/:id"
-            element={
-              <Suspense fallback={<h1>Loading...</h1>}>
-                <VanHostDetail />
-              </Suspense>
-            }
+            element={<VanHostDetail />}
             loader={vansHostDetailLoader}
             errorElement={<Error />}
           >
