@@ -7,8 +7,8 @@ import {
 } from "react-router";
 import Home from "../Home/Home.jsx";
 import About from "../About/About.jsx";
-import Vans, { Loader as vansLoader } from "../Vans/Vans.jsx";
-import VanDetail, { Loader as vansDetailLoader } from "../Vans/VanDetail.jsx";
+import { Loader as vansLoader } from "../Vans/Vans.jsx";
+import { Loader as vansDetailLoader } from "../Vans/VanDetail.jsx";
 import Dashboard, { Loader as dashboardLoader } from "../Host/Dashboard.jsx";
 import VansHost, { Loader as vansHostLoader } from "../Host/VansHost.jsx";
 import Income from "../Host/Income.jsx";
@@ -27,6 +27,16 @@ import AuthRequired from "../AuthRequired.jsx";
 import Error from "../Error.jsx";
 
 import "/server";
+import { lazy, Suspense } from "react";
+import { BeatLoader } from "react-spinners";
+
+const Vans = lazy(() => {
+  return import("../Vans/Vans.jsx");
+});
+
+const VanDetail = lazy(() => {
+  return import("../Vans/VanDetail.jsx");
+});
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,13 +46,33 @@ const Router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route
         path="vans"
-        element={<Vans />}
+        element={
+          <Suspense
+            fallback={
+              <BeatLoader
+                cssOverride={{ textAlign: "center", marginTop: "12rem" }}
+              />
+            }
+          >
+            <Vans />
+          </Suspense>
+        }
         loader={vansLoader}
         errorElement={<Error />}
       />
       <Route
         path="vans/:id"
-        element={<VanDetail />}
+        element={
+          <Suspense
+            fallback={
+              <BeatLoader
+                cssOverride={{ textAlign: "center", marginTop: "12rem" }}
+              />
+            }
+          >
+            <VanDetail />
+          </Suspense>
+        }
         loader={vansDetailLoader}
         errorElement={<Error />}
       />
