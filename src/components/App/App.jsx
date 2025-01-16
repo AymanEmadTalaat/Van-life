@@ -8,7 +8,7 @@ import {
 import Home from "../Home/Home.jsx";
 import About from "../About/About.jsx";
 import { Loader as vansLoader } from "../Vans/Vans.jsx";
-import { Loader as vansDetailLoader } from "../Vans/VanDetail.jsx";
+import VanDetail, { Loader as vansDetailLoader } from "../Vans/VanDetail.jsx";
 import Dashboard, { Loader as dashboardLoader } from "../Host/Dashboard.jsx";
 import VansHost, { Loader as vansHostLoader } from "../Host/VansHost.jsx";
 import Income from "../Host/Income.jsx";
@@ -32,10 +32,6 @@ import { BeatLoader } from "react-spinners";
 
 const Vans = lazy(() => {
   return import("../Vans/Vans.jsx");
-});
-
-const VanDetail = lazy(() => {
-  return import("../Vans/VanDetail.jsx");
 });
 
 const Router = createBrowserRouter(
@@ -62,17 +58,7 @@ const Router = createBrowserRouter(
       />
       <Route
         path="vans/:id"
-        element={
-          <Suspense
-            fallback={
-              <BeatLoader
-                cssOverride={{ textAlign: "center", marginTop: "12rem" }}
-              />
-            }
-          >
-            <VanDetail />
-          </Suspense>
-        }
+        element={<VanDetail />}
         loader={vansDetailLoader}
         errorElement={<Error />}
       />
